@@ -16,5 +16,6 @@ export interface IArticle{
 //퀘스천마크 = null 허용
 
 export interface IBoard{
+    write?: string
 
 }

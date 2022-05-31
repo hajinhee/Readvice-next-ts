@@ -1,6 +1,6 @@
 import AddPost from "@/components/board/AddPost";
 import Article from "@/components/board/Article";
-import { IArticle } from "@/types";
+import { IArticle, IBoard } from "@/types";
 import { InferGetStaticPropsType } from "next";
 import React, { useState } from "react";
 
@@ -24,9 +24,9 @@ export default function BoardPage({articles}: InferGetStaticPropsType<typeof get
     if(!articleList) return <h1>Loading...</h1>
     
     return <>
-    <AddPost/>
+    <AddPost write={addPost}/>
     {articleList.map((article: IArticle)=>(
-        <Article key={article.artId} article={article}/>
+        <Article key={article.artId} deletePost={deletePost} article={article}/>
         ))}
     </>
 }
